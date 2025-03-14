@@ -1,6 +1,6 @@
 import { VNode } from "../types";
 
-export const render = (node: HTMLElement, children?: VNode | VNode[]) => {
+export const render = (node: VNode, children?: VNode | VNode[]) => {
   if (!children) return;
 
   if (Array.isArray(children)) {

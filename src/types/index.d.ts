@@ -3,9 +3,10 @@ export interface IComponentProps {
   tag?: keyof HTMLElementTagNameMap = "div";
 }
 
-export type VNode = HTMLElement | DocumentFragment;
+export type VNode = HTMLElement | DocumentFragment | Element;
 
 export interface IUser {
   id: number;
-  [key: string]: any;
+  email: string;
+  password: string;
 }

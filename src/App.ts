@@ -5,24 +5,17 @@ import { IUser } from "./types";
 import { Table } from "./components/ExampleTable";
 import { render } from "./utils/render";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useRef } from "./hooks/useRef";
 
 export const App = () => {
-  const body = document.querySelector("body")!;
+  const appNode = useRef("#app")!;
 
   useLocalStorage<IUser[]>("users", [
-    { id: 1, email: "ggjuke@gmail.com", pass: "1234" },
-    { id: 2, email: "OrkTupoy@gmail.com", pass: "1111" },
+    { id: 1, email: "ggjuke@gmail.com", password: "1234" },
+    { id: 2, email: "OrkTupoy@gmail.com", password: "1111" },
   ]);
 
-  // render(
-  //   body,
-  //   Container({
-  //     tag: "div",
-  //     children: [Button("kek"), Button("abaasdasd")],
-  //   })
-  // );
-
-  render(body, Auth());
+  render(appNode, Auth());
 
   // body.append(
   //   Container({
