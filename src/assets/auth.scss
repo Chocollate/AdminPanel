@@ -32,7 +32,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 20px 0;
+      margin: 20px 0;
     }
 
     &__email-input,
@@ -46,10 +46,38 @@
     }
 
     &__forgot-sign {
-      // background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+
+      a {
+        color: #3182ce;
+        width: 100%;
+        text-decoration: none;
+      }
+
+      .auth__sign-in-button {
+        color: #ffffff;
+        background-color: #2a4365;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        font-size: 20px;
+        border-radius: 5px;
+      }
     }
-    /* Доделать стилизацию аутентификации
-      
-    */
+
+    &__dont-have-account-button {
+      color: #2a4365;
+      background-color: #ffffff;
+      border-color: #2a4365;
+      border: 2px solid;
+      border-radius: 5px;
+      padding: 15px;
+      margin-top: 40px;
+      width: 100%;
+      font-size: 20px;
+    }
   }
 }

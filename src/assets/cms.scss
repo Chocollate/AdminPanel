@@ -1,0 +1,27 @@
+.cms {
+  .header {
+    background-color: #2d3748;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+      a {
+        color: #ffffff;
+        width: 100%;
+        text-decoration: none;
+      }
+      .logo__cms {
+        color: #6ea4f0;
+      }
+    }
+    &__user-activities {
+      .pro-plan-button {
+      }
+      .user-avatar {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+}

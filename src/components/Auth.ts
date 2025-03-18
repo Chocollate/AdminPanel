@@ -1,4 +1,6 @@
+import { Cms } from "./Cms";
 import { IUser } from "../types";
+import { render } from "../utils/render";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useRef } from "../hooks/useRef";
 import { useTemplate } from "../hooks/useTemplate";
@@ -52,20 +54,24 @@ export const Auth = () => {
     console.log("Пусворд - ", passwordNode);
     console.log(template);
 
-    const findedUser = usersBase.find(
-      (user, index) =>
-        user.email === emailNode.value && user.password === passwordNode.value
-    );
+    const findedUser = usersBase.find((user, index) => {
+      if (
+        user.email === emailNode.value &&
+        user.password === passwordNode.value
+      ) {
+        // Перерисовываем APP
+        const element = document.getElementById("app");
+        element?.remove();
+        const appNode = useRef("#app");
+        render(appNode, Cms());
+      } else {
+        console.log("Пользователь не найден");
+      }
+    });
 
     console.log(findedUser);
   };
 
-  // const header = document.createElement("h1");
-
-  // header.innerHTML = "RivalCMS";
-
-  // return header;
-  // return <h1>RivalCMS</h1>
   return template.content;
 };
 

@@ -1,5 +1,6 @@
 import { Auth } from "./components/Auth";
 import { Button } from "./components/Button";
+import { Cms } from "./components/Cms";
 import { Container } from "./components/Container";
 import { IUser } from "./types";
 import { Table } from "./components/ExampleTable";
@@ -15,7 +16,8 @@ export const App = () => {
     { id: 2, email: "OrkTupoy@gmail.com", password: "1111" },
   ]);
 
-  render(appNode, Auth());
+  // render(appNode, Auth());
+  render(appNode, Cms());
 
   // body.append(
   //   Container({
