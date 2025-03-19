@@ -1,6 +1,8 @@
 import { Cms } from "./Cms";
 import { IUser } from "../types";
+import { checkUser } from "../utils/checkUser";
 import { render } from "../utils/render";
+import { unmount } from "../utils/unmount";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useRef } from "../hooks/useRef";
 import { useTemplate } from "../hooks/useTemplate";
@@ -18,13 +20,13 @@ export const Auth = () => {
           <img src="images/lock.svg" alt="logo__lock">
           <span>Email address</span>
         </label>
-        <input class="auth__email-input" type="email" name="email" required />
+        <input class="auth__email-input" type="email" name="email" value="ggjuke@gmail.com" required />
 
         <label class="auth__title">
           <img  src="images/mail.svg" alt="logo__mail">
           <span>Password</span>
         </label>
-        <input class="auth__password-input" type="password" name="password" required>
+        <input class="auth__password-input" type="password" name="password" value="1234" required>
 
         <div class="auth__forgot-sign">
         <a href="https://vk.com/worldkeeper">Forgot password?</a>
@@ -48,28 +50,23 @@ export const Auth = () => {
   button.onclick = () => {
     const usersBase = useLocalStorage<IUser[]>("users");
 
-    console.log(template.innerHTML);
+    // console.log(template.innerHTML);
 
-    console.log("Мыло - ", emailNode);
-    console.log("Пусворд - ", passwordNode);
-    console.log(template);
+    // console.log("Мыло - ", emailNode);
+    // console.log("Пусворд - ", passwordNode);
+    // console.log(template);
 
-    const findedUser = usersBase.find((user, index) => {
-      if (
-        user.email === emailNode.value &&
-        user.password === passwordNode.value
-      ) {
-        // Перерисовываем APP
-        const element = document.getElementById("app");
-        element?.remove();
-        const appNode = useRef("#app");
-        render(appNode, Cms());
-      } else {
-        console.log("Пользователь не найден");
-      }
-    });
+    const findedUser = checkUser(emailNode.value, passwordNode.value);
 
-    console.log(findedUser);
+    if (findedUser) {
+      const appNode = useRef("#app");
+      unmount(".panel");
+      render(appNode, Cms());
+    } else {
+      console.log("Пользователь не найден");
+    }
+
+    // console.log(findedUser);
   };
 
   return template.content;

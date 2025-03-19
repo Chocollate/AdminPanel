@@ -6,21 +6,23 @@ export const Cms = () => {
   template.innerHTML = /*html*/ `
     <div class="cms">
       <header class="header">
-        <div class="header__logo">
-          <a href=""> /* доделать */
-            <img src="images/group.svg" alt="rival-cms-logo">
-            Rival
-            <span class="header__logo-cms">
-              CMS
-            </span>
-          </a>
-        </div>
+        <a class="header__logo" href="#">
+          <img class="header__image" src="images/group.svg" alt="rival-cms-logo">
+          Rival
+          <span class="header__cms">
+            CMS
+          </span>
+        </a>
         <div class="header__user-activities">
-        <button class="pro-plan-button">Pro plan</button>
-        <img class="user-avatar" src="images/portrait.jpg" alt="user-avatar">
+          <button class="header__plan-button" type="button">Pro plan</button>
+          <div class="header__avatar">
+            <img class="header__avatar-image" src="images/portrait.jpg" alt="user-avatar">
+          </div>
         </div>
       </header>
-      <div class="navigation"></div>
+      <div class="navigation">
+        
+      </div>
       <div class="content"></div>
     </div>
     `;
