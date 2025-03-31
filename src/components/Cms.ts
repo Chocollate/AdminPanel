@@ -20,10 +20,30 @@ export const Cms = () => {
           </div>
         </div>
       </header>
-      <div class="navigation">
-        
-      </div>
-      <div class="content"></div>
+      
+      <main class="main">
+        <aside class="sidebar">
+          <h2 class="sidebar__group-name">Manage</h2>
+          <ul class="sidebar__groups">
+            <li class="sidebar__groups__view-site"><a href=""><img src="/public/images/home.svg">View site</a></li>
+            <li><a href=""><img src="/public/images/file-plus.svg">Create page</a></li>
+            <li><a href=""><img src="/public/images/pen-tool.svg">Blog articles</a></li>
+            <li><a href=""><img src="/public/images/image.svg">Files</a></li>
+            <li><a href=""><img src="/public/images/users.svg">Users</a></li>
+            <li><a href=""><img src="/public/images/zap.svg">Subscriptions</a></li>
+            <li><a href=""><img src="/public/images/trash-2.svg">Archived pages</a></li>
+          </ul>
+          <h2 class="sidebar__group-name">Pro features</h2>
+          <ul class="sidebar__groups">
+            <li><a href=""><img src="/public/images/book-open.svg">Themes</a></li>
+            <li><a href=""><img src="/public/images/box.svg">Plugins</a></li>
+            <li><a href=""><img src="/public/images/coffee.svg">Upgrade plans</a></li>
+          </ul>
+        </aside>
+        <div class="content">
+          yoooo
+        </div>
+      </main>
     </div>
     `;
   return template.content;

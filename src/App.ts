@@ -16,8 +16,8 @@ export const App = () => {
     { id: 2, email: "OrkTupoy@gmail.com", password: "1111" },
   ]);
 
-  // render(appNode, Auth());
-  render(appNode, Cms());
+  render(appNode, Auth());
+  // render(appNode, Cms());
 
   // body.append(
   //   Container({
