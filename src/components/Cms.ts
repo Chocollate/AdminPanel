@@ -1,3 +1,4 @@
+import { useRouter } from "../hooks/useRouter";
 import { useTemplate } from "../hooks/useTemplate";
 
 export const Cms = () => {
@@ -25,13 +26,13 @@ export const Cms = () => {
         <aside class="sidebar">
           <h2 class="sidebar__group-name">Manage</h2>
           <ul class="sidebar__groups">
-            <li class="sidebar__groups__view-site"><a href=""><img src="/public/images/home.svg">View site</a></li>
-            <li><a href=""><img src="/public/images/file-plus.svg">Create page</a></li>
-            <li><a href=""><img src="/public/images/pen-tool.svg">Blog articles</a></li>
-            <li><a href=""><img src="/public/images/image.svg">Files</a></li>
-            <li><a href=""><img src="/public/images/users.svg">Users</a></li>
-            <li><a href=""><img src="/public/images/zap.svg">Subscriptions</a></li>
-            <li><a href=""><img src="/public/images/trash-2.svg">Archived pages</a></li>
+            <li class="sidebar__groups__view-site"><a href="#"><img src="/public/images/home.svg">View site</a></li>
+            <li><a href="#"><img src="/public/images/file-plus.svg">Create page</a></li>
+            <li><a href="#"><img src="/public/images/pen-tool.svg">Blog articles</a></li>
+            <li><a href="#"><img src="/public/images/image.svg">Files</a></li>
+            <li><a href="#"><img src="/public/images/users.svg">Users</a></li>
+            <li><a href="#"><img src="/public/images/zap.svg">Subscriptions</a></li>
+            <li><a href="#"><img src="/public/images/trash-2.svg">Archived pages</a></li>
           </ul>
           <h2 class="sidebar__group-name">Pro features</h2>
           <ul class="sidebar__groups">
@@ -46,5 +47,10 @@ export const Cms = () => {
       </main>
     </div>
     `;
+
+  document.querySelector("a")?.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
+
   return template.content;
 };

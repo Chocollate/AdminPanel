@@ -73,7 +73,9 @@
 
     .sidebar {
       height: 100%;
-      padding: 45px;
+      padding: 40px;
+      white-space: nowrap;
+      // margin: 30px;
       box-sizing: border-box;
       // resize: horizontal;
       // overflow: auto;
@@ -82,7 +84,7 @@
         font-size: 18px;
         font-weight: 400;
         color: #4299e1;
-        margin: 20px 0px;
+        margin: 30px 0px;
       }
 
       &__groups {
@@ -110,6 +112,10 @@
           color: #2c5282;
         }
       }
+    }
+    .content {
+      background-color: #ffffff;
+      width: 100%;
     }
   }
 }
