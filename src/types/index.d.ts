@@ -10,3 +10,9 @@ export interface IUser {
   email: string;
   password: string;
 }
+
+export interface ILink {
+  href: string;
+  text?: string;
+  icon?: string;
+}
