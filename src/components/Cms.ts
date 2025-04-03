@@ -1,5 +1,8 @@
 import { ILink } from "../types";
 import { Link } from "./Link";
+import { List } from "./List";
+import { render } from "../utils/render";
+import { useRef } from "../hooks/useRef";
 import { useRouter } from "../hooks/useRouter";
 import { useTemplate } from "../hooks/useTemplate";
 
@@ -83,26 +86,14 @@ export const Cms = () => {
       <main class="main">
         <aside class="sidebar">
           <h2 class="sidebar__group-name">Manage</h2>
-          <ul class="sidebar__groups">
-            <li><a href="#"><img src="/images/home.svg">View site</a></li>
-            <li>
-              ${Link({
-                href: "#",
-                text: "Create Page",
-                icon: "file-plus",
-              })}
-            </li>
-            <li><a href="#"><img src="/images/pen-tool.svg">Blog articles</a></li>
-            <li><a href="#"><img src="/images/image.svg">Files</a></li>
-            <li><a href="#"><img src="/images/users.svg">Users</a></li>
-            <li><a href="#"><img src="/images/zap.svg">Subscriptions</a></li>
-            <li><a href="#"><img src="/images/trash-2.svg">Archived pages</a></li>
+          <ul class="sidebar__groups" id="main-ul">
+            
           </ul>
           <h2 class="sidebar__group-name">Pro features</h2>
-          <ul class="sidebar__groups">
-            <li><a href=""><img src="/images/book-open.svg">Themes</a></li>
+          <ul class="sidebar__groups" id="sub-ul">
+            <!-- <li><a href=""><img src="/images/book-open.svg">Themes</a></li>
             <li><a href=""><img src="/images/box.svg">Plugins</a></li>
-            <li><a href=""><img src="/images/coffee.svg">Upgrade plans</a></li>
+            <li><a href=""><img src="/images/coffee.svg">Upgrade plans</a></li> -->
           </ul>
         </aside>
         <div class="content">
@@ -111,6 +102,23 @@ export const Cms = () => {
       </main>
     </div>
     `;
+
+  const mainUl = useRef("#main-ul", template.content);
+  const subUl = useRef("#sub-ul", template.content);
+
+  render(
+    mainUl,
+    List({
+      items: mainItems,
+      tag: "ul",
+      component: (props) => Link(props),
+      className: "sidebar__groups",
+    })
+  );
+  render(
+    subUl,
+    subItems.map((item) => Link(item))
+  );
 
   return template.content;
 };

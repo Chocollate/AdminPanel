@@ -16,3 +16,10 @@ export interface ILink {
   text?: string;
   icon?: string;
 }
+
+export interface IListProps<T> {
+  tag?: keyof HTMLElementTagNameMap = "div";
+  className?: string;
+  items: T[];
+  component: (itemProps: T) => VNode;
+}

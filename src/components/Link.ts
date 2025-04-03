@@ -17,7 +17,5 @@ export const Link = (props: ILink) => {
     event.preventDefault();
   };
 
-  console.log(template.content);
-
   return template.content;
 };
