@@ -23,3 +23,9 @@ export interface IListProps<T> {
   items: T[];
   component: (itemProps: T) => VNode;
 }
+
+export interface IListItemProps<T> {
+  tag?: keyof HTMLElementTagNameMap = "div";
+  className?: string;
+  component: (itemProps: T) => VNode;
+}

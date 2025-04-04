@@ -108,13 +108,15 @@ export const Cms = () => {
 
   render(
     mainUl,
-    List({
-      items: mainItems,
-      tag: "ul",
-      component: (props) => Link(props),
-      className: "sidebar__groups",
-    })
+    mainItems.map((item) => Link(item))
+    // List({
+    //   items: mainItems,
+    //   tag: "li",
+    //   component: (props) => Link(props),
+    //   className: "sidebar__groups",
+    // });
   );
+
   render(
     subUl,
     subItems.map((item) => Link(item))
