@@ -26,7 +26,7 @@ export const List = <T>(props?: IListProps<T>) => {
   return template.content;
 };
 
-const ListItem = <T>(props: IListItemProps<T>) => {
+export const ListItem = <T>(props: IListItemProps<T>) => {
   const template = useTemplate();
 
   template.innerHTML = `<${props.tag}>
@@ -35,6 +35,8 @@ const ListItem = <T>(props: IListItemProps<T>) => {
 
   const container = template.content.querySelector(props?.tag || "div")!;
 
-  render(container, props.component);
+  render(container, props.component(props as T));
+
+  return template.content;
 };
 //doc query selector LIшек ДОДЕЛАТЬ

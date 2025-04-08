@@ -29,3 +29,24 @@ export interface IListItemProps<T> {
   className?: string;
   component: (itemProps: T) => VNode;
 }
+
+export interface ITableColumn<T> {
+  key: string;
+  title: string;
+  render?: (value: any, item: T) => VNode;
+}
+
+export interface ITableProps<T> {
+  items: T[];
+  columns: ITableColumn<T>[];
+  header?: VNode;
+  itemComponent?: (item: T) => VNode;
+  pageSize?: number;
+  className?: string;
+}
+
+export interface IPaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}

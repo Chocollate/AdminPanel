@@ -1,6 +1,8 @@
+import { List, ListItem } from "./List";
+
 import { ILink } from "../types";
 import { Link } from "./Link";
-import { List } from "./List";
+import { Table } from "./Table";
 import { render } from "../utils/render";
 import { useRef } from "../hooks/useRef";
 import { useRouter } from "../hooks/useRouter";
@@ -96,8 +98,8 @@ export const Cms = () => {
             <li><a href=""><img src="/images/coffee.svg">Upgrade plans</a></li> -->
           </ul>
         </aside>
-        <div class="content">
-          yoooo
+        <div class="content" id="content">
+          
         </div>
       </main>
     </div>
@@ -105,21 +107,40 @@ export const Cms = () => {
 
   const mainUl = useRef("#main-ul", template.content);
   const subUl = useRef("#sub-ul", template.content);
+  const content = useRef("#content", template.content);
 
   render(
     mainUl,
-    mainItems.map((item) => Link(item))
-    // List({
-    //   items: mainItems,
-    //   tag: "li",
-    //   component: (props) => Link(props),
-    //   className: "sidebar__groups",
-    // });
+    mainItems.map((item) =>
+      ListItem({
+        tag: "li",
+        component: () => Link(item),
+      })
+    )
   );
 
   render(
     subUl,
     subItems.map((item) => Link(item))
+  );
+
+  render(
+    content,
+    Table({
+      columns: [
+        {
+          key: "href",
+          title: "meme",
+          render: (value) => {
+            const template = useTemplate();
+            template.innerHTML = "aksjdhaskdhjasd";
+            return template.content;
+          },
+        },
+      ],
+      items: mainItems,
+      pageSize: 1,
+    })
   );
 
   return template.content;
