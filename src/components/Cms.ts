@@ -1,9 +1,11 @@
 import { List, ListItem } from "./List";
 
+import { Button } from "./Button";
 import { ILink } from "../types";
 import { Link } from "./Link";
 import { Table } from "./Table";
 import { render } from "../utils/render";
+import { renderBlogArticles } from "../utils/renderBlogArticles";
 import { useRef } from "../hooks/useRef";
 import { useRouter } from "../hooks/useRouter";
 import { useTemplate } from "../hooks/useTemplate";
@@ -67,6 +69,39 @@ export const Cms = () => {
     },
   ];
 
+  const articlesData = [
+    {
+      title: "Design: A Survival Guide for Beginners",
+      posted: "Posted 3 days ago",
+      status: "Published",
+      statsNum: 120,
+    },
+    {
+      title: "Design: A Survival Guide for Beginners",
+      posted: "Posted 3 days ago",
+      status: "Draft",
+      statsNum: 0,
+    },
+    {
+      title: "Design: A Survival Guide for Beginners",
+      posted: "Posted 3 days ago",
+      status: "Scheduled",
+      statsNum: 0,
+    },
+    {
+      title: "Design: A Survival Guide for Beginners",
+      posted: "Posted 3 days ago",
+      status: "Published",
+      statsNum: 120,
+    },
+    {
+      title: "Design: A Survival Guide for Beginners",
+      posted: "Posted 3 days ago",
+      status: "Published",
+      statsNum: 120,
+    },
+  ];
+
   template.innerHTML = /*html*/ `
     <div class="cms">
       <header class="header">
@@ -99,7 +134,26 @@ export const Cms = () => {
           </ul>
         </aside>
         <div class="content" id="content">
-          
+          <table>
+            <thead>
+              <tr>
+                <th scope="column">Title</th>
+                <th scope="column">Status</th>
+                <th scope="column">Stats</th>
+                <th scope="column"><button><img src='/images/pen-tool.svg'>Add new</button></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+              </tr>
+            </tfoot>
+          </table>
         </div>
       </main>
     </div>
@@ -121,9 +175,18 @@ export const Cms = () => {
 
   render(
     subUl,
-    subItems.map((item) => Link(item))
+    subItems.map((item) =>
+      ListItem({
+        tag: "li",
+        component: () => Link(item),
+      })
+    )
   );
 
+  // Рендеринг статей
+  renderBlogArticles(articlesData, template.content);
+
+  /* 
   render(
     content,
     Table({
@@ -137,11 +200,34 @@ export const Cms = () => {
             return template.content;
           },
         },
+        {
+          key: "title",
+          title: "Title",
+        },
+        {
+          key: "status",
+          title: "Status",
+        },
+        {
+          key: "stats",
+          title: "Stats",
+        },
+        {
+          key: "button",
+          title: "Btn",
+          render: (value) => {
+            // const template = useTemplate();
+            const addBtn = Button("<img src='/images/pen-tool.svg'>Add new");
+            // template.appendChild(addBtn);
+            // return template.;
+            return addBtn;
+          },
+        },
       ],
       items: mainItems,
       pageSize: 1,
     })
   );
-
+ */
   return template.content;
 };

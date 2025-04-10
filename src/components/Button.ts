@@ -3,8 +3,6 @@ export const Button = (buttonText: string) => {
 
   template.innerHTML = `
     <button>${buttonText}</button>
-      <h1>hello</h1>
-    <div>242343</div>
   `;
 
   template.content.querySelector("button")!.onclick = () => {
