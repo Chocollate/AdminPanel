@@ -137,23 +137,21 @@ export const Cms = () => {
           <table>
             <thead>
               <tr>
-                <th scope="column">Title</th>
-                <th scope="column">Status</th>
-                <th scope="column">Stats</th>
-                <th scope="column"><button><img src='/images/pen-tool.svg'>Add new</button></th>
+                  <th scope="column">Title</th>
+                  <th scope="column">Status</th>
+                  <th scope="column">Stats</th>
+                  <th scope="column"><div class="table__btn"><button><img src='/images/pen-tool-btn.svg'>Add new</button></div></th>
               </tr>
             </thead>
             <tbody>
               
             </tbody>
-            <tfoot>
-              <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-              </tr>
-            </tfoot>
           </table>
+          <div class="footer-content">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+          </div>
         </div>
       </main>
     </div>
