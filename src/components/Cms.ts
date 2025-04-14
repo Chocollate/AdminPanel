@@ -18,6 +18,7 @@ export const Cms = () => {
       href: "#",
       text: "View site",
       icon: "home",
+      className: "sidebar__groups__view-site",
     },
     {
       href: "#",
@@ -183,6 +184,10 @@ export const Cms = () => {
 
   // Рендеринг статей
   renderBlogArticles(articlesData, template.content);
+
+  // TODO: добавить в ILink способ писать классы, чтобы VIEW SITE можно было стилизовать
+  // TODO:
+  //
 
   /* 
   render(

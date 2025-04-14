@@ -7,7 +7,10 @@ export const Link = (props: ILink) => {
 
   template.innerHTML = /*html*/ `
       
-        <a href="${props.href}">
+        <a
+        href="${props.href}"
+        ${props.className ? `class=${props.className}` : ""}
+        >
           <img src="/images/${props.icon}.svg" alt="${props.icon}">
           ${props.text}
         </a>

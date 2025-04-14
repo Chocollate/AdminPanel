@@ -15,6 +15,7 @@ export interface ILink {
   href: string;
   text?: string;
   icon?: string;
+  className?: string;
 }
 
 export interface IListProps<T> {
